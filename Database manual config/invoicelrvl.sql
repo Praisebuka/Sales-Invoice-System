@@ -357,7 +357,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `f_name`, `l_name`, `email`, `image`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Code', 'Astro', 'admin@mail.com', 'admin-icn.png', NULL, '$2y$10$z2E4fnu31lUOh12ZcDMdle4mqSkLHp1hM/txrZ.XJi5P1dmP9EUqO', NULL, NULL, '2023-12-12 22:35:31');
+(1, 'Praise', 'Ebuka', 'admin@mail.com', 'user.png', NULL, '$2y$10$z2E4fnu31lUOh12ZcDMdle4mqSkLHp1hM/txrZ.XJi5P1dmP9EUqO', NULL, NULL, '2023-12-12 22:35:31');
 
 --
 -- Indexes for dumped tables
