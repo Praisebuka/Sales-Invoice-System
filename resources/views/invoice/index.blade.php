@@ -13,7 +13,7 @@
                 <h1><i class="fa fa-th-list"></i> Invoices Table</h1>
             </div>
             <ul class="app-breadcrumb breadcrumb side">
-                <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+                <li class="breadcrumb-item"><a href="/"><i class="fa fa-home fa-lg"></i></a></li>
                 <li class="breadcrumb-item">Invoice</li>
                 <li class="breadcrumb-item active"><a href="#">Invoice Table</a></li>
             </ul>
@@ -43,7 +43,7 @@
                                      <td>{{$invoice->customer->name}}</td>
                                      <td>{{$invoice->created_at->format('Y-m-d')}}</td>
                                      <td>
-                                         <a class="btn btn-primary btn-sm" href="{{route('invoice.show', $invoice->id)}}"><i class="fa fa-eye" ></i></a>
+                                         <a class="btn btn-primary btn-sm" href="{{route('invoice.show', $invoice->id)}}" target="_blank"><i class="fa fa-eye" ></i></a>
                                          <a class="btn btn-info btn-sm" href="{{route('invoice.edit', $invoice->id)}}"><i class="fa fa-edit" ></i></a>
 
                                          <button class="btn btn-danger btn-sm waves-effect" type="submit" onclick="deleteTag({{ $invoice->id }})">

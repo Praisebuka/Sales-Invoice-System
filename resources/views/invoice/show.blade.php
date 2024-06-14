@@ -1,17 +1,18 @@
 @extends('layouts.master')
 
 @section('title', 'Invoice | ')
-@section('content')
-    @include('partials.header')
-    @include('partials.sidebar')
-    <main class="app-content">
+    {{-- Uncomment This for interactive UI --}}
+{{-- @section('content') --}}
+    {{-- @include('partials.header')
+    @include('partials.sidebar') --}}
+    <main class="app-content" style="margin: unset">
         <div class="app-title">
             <div>
                 <h1><i class="fa fa-file-text-o"></i> Invoice</h1>
                 <p>A Printable Invoice Format</p>
             </div>
             <ul class="app-breadcrumb breadcrumb">
-                <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+                <li class="breadcrumb-item"><a href="/"><i class="fa fa-home fa-lg"></i></a></li>
                 <li class="breadcrumb-item"><a href="#">Invoice</a></li>
             </ul>
         </div>
@@ -29,7 +30,7 @@
                         </div>
                         <div class="row invoice-info">
                             <div class="col-4">From
-                                <address><strong>CodeAstro</strong><br>Demo,<br>Address<br>codeastro.com</address>
+                                <address><strong> Praisebuka</strong><br>Demo,<br>Address<br> thepraise.netlify.app </address>
                             </div>
                             <div class="col-4">To
                                  <address><strong>{{$invoice->customer->name}}</strong><br>{{$invoice->customer->address}}<br>Phone: {{$invoice->customer->mobile}}<br>Email: {{$invoice->customer->email}}</address>
@@ -78,7 +79,7 @@
                             </div>
                         </div>
                         <div class="row d-print-none mt-2">
-                            <div class="col-12 text-right"><a class="btn btn-primary" href="javascript:void(0);" onclick="printInvoice();"><i class="fa fa-print"></i> Print</a></div>
+                            <div class="col-12 text-right"><a class="btn btn-primary" href="javascript:void(0);" target="_blank" onclick="printInvoice();"><i class="fa fa-print"></i> Print</a></div>
                         </div>
                     </section>
                 </div>
@@ -93,9 +94,10 @@
     }
     </script>
 
-@endsection
-@push('js')
-@endpush
+{{-- Uncomment This for interactive UI --}}
+{{-- @endsection --}}
+{{-- @push('js') --}}
+{{-- @endpush --}}
 
 
 

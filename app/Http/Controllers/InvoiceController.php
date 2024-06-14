@@ -29,6 +29,9 @@ class InvoiceController extends Controller
     public function index()
     {
         $invoices = Invoice::all();
+
+        // dd($invoices);
+
         return view('invoice.index', compact('invoices'));
     }
 
@@ -100,6 +103,7 @@ class InvoiceController extends Controller
     {
         $invoice = Invoice::findOrFail($id);
         $sales = Sale::where('invoice_id', $id)->get();
+        
         return view('invoice.show', compact('invoice','sales'));
 
     }
