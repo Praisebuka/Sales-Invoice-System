@@ -11,7 +11,7 @@
                 <h1><i class="fa fa-edit"></i> Update Profile </h1>
             </div>
             <ul class="app-breadcrumb breadcrumb">
-                <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+                <li class="breadcrumb-item"><a href="/"><i class="fa fa-home fa-lg"></i></a></li>
                 <li class="breadcrumb-item">Forms</li>
                 <li class="breadcrumb-item"><a href="#"> Profile Update </a></li>
             </ul>
@@ -32,7 +32,7 @@
                          <div class="col-lg-12">
                              <div>
                                  <div>
-                                 <img width="60 px" class="app-sidebar__user-avatar"  src="{{ asset('images/user/'.Auth::user()->image) }}" alt="User Image">
+                                 <img width="60 px" class="app-sidebar__user-avatar"  src="{{ asset('images/user/'.Auth::user()->image) }}" alt="{{ Auth::user()->f_name }}">
                                     <p><span class="badge badge-dark">{{ Auth::user()->fullname }}</span></p>
                                   </div>
                              </div>
