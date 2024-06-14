@@ -133,14 +133,13 @@ class InvoiceController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-
-        'customer_id' => 'required',
-        'product_id' => 'required',
-        'qty' => 'required',
-        'price' => 'required',
-        'dis' => 'required',
-        'amount' => 'required',
-    ]);
+            'customer_id' => 'required',
+            'product_id' => 'required',
+            'qty' => 'required',
+            'price' => 'required',
+            'dis' => 'required',
+            'amount' => 'required',
+        ]);
 
         $invoice = Invoice::findOrFail($id);
         $invoice->customer_id = $request->customer_id;

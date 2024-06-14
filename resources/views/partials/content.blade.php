@@ -51,9 +51,6 @@
     <div class="col-md-6">
     <div class="tile">
         <h3 class="tile-title">Monthly Sales</h3>
-        <!-- <div class="embed-responsive embed-responsive-16by9">
-            <canvas class="embed-responsive-item" id="monthlySalesChart"></canvas>
-        </div> -->
         <div id="monthlySalesChart" style="width: 100%; max-width: 100%; height: 300px;"></div>
 
     </div>
@@ -61,11 +58,7 @@
         <div class="col-md-6">
             <div class="tile">
                 <h3 class="tile-title">Top 5 Sales Product</h3>
-                <!-- <div class="embed-responsive embed-responsive-16by9">
-                    <canvas class="embed-responsive-item" id="pieChartDemo"></canvas>
-                </div> -->
                 <div id="topSalesChart" style="width:100%; max-width:100%; height:300px;"></div>
-
             </div>
         </div>
     </div>
