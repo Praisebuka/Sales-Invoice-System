@@ -52,54 +52,57 @@ class PurchaseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-{
-    // Validation rules
-    $request->validate([
-        'supplier_id' => 'required|exists:suppliers,id',
-        'date' => 'required|date',
-        'product_id.*' => 'required|exists:products,id',
-        'qty.*' => 'required|numeric|min:1',
-        'price.*' => 'required|numeric|min:0',
-        'dis.*' => 'required|numeric|min:0|max:100',
-        'amount.*' => 'required|numeric|min:0',
-    ]);
+    {
 
-    // Create a new purchase
-    $purchase = new Purchase();
-    $purchase->supplier_id = $request->supplier_id;
-    $purchase->date = $request->date;
-    // Add other fields if needed
+        // Validation rules
+        $request->validate([
+            'supplier_id' => 'required|exists:suppliers,id',
+            'date' => 'required|date',
+            'product_id.*' => 'required|exists:products,id',
+            'qty.*' => 'required|numeric|min:1',
+            'price.*' => 'required|numeric|min:0',
+            'dis.*' => 'required|numeric|min:0|max:100',
+            'amount.*' => 'required|numeric|min:0',
+        ]);
 
-    // Save the purchase
-    $purchase->save();
+        // Create a new purchase
+        $purchase = new Purchase();
+        $purchase->supplier_id = $request->supplier_id;
+        $purchase->date = $request->date;
+        // Add other fields if needed
 
-    // Store purchase details
-foreach ($request->product_id as $key => $productId) {
-    $purchase->purchaseDetails()->create([
-        'supplier_id' => $request->supplier_id, // Include supplier_id
-        'product_id' => $productId,
-        'qty' => $request->qty[$key],
-        'price' => $request->price[$key],
-        'discount' => $request->dis[$key],
-        'amount' => $request->amount[$key],
-        // Add other details if needed
-    ]);
-}
+        // Save the purchase
+        $purchase->save();
+
+        // Store purchase details
+        foreach ($request->product_id as $key => $productId) {
+            $purchase->purchaseDetails()->create([
+                'supplier_id' => $request->supplier_id, // Include supplier_id
+                'product_id' => $productId,
+                'qty' => $request->qty[$key],
+                'price' => $request->price[$key],
+                'discount' => $request->dis[$key],
+                'amount' => $request->amount[$key],
+                // Add other details if needed
+            ]);
+        }
 
 
-    return redirect()->route('purchase.index')->with('success', 'Purchase added successfully');
-}
+        return redirect()->route('purchase.index')->with('success', 'Purchase added successfully');
+    }
 
-    public function findPrice(Request $request){
+    public function findPrice(Request $request)
+    {
         $data = DB::table('products')->select('sales_price')->where('id', $request->id)->first();
         return response()->json($data);
     }
 
-    public function findPricePurchase(Request $request) {
+    public function findPricePurchase(Request $request) 
+    {
         $data = DB::table('product_suppliers')
                 ->select('price')
                 ->where('product_id', $request->id)
-                ->where('supplier_id', $request->supplier_id) // Assuming you pass supplier_id from the frontend
+                ->where('supplier_id', $request->supplier_id) # Assuming you pass supplier_id from the frontend
                 ->first();
     
         return response()->json($data);

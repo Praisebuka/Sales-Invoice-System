@@ -142,12 +142,4 @@ class HomeController extends Controller
 
     }
 
-
-    // public function update_password(){
-    //     return view('profile.password');
-    // }
-
-    // public function update_password() {
-    //     return view('profile.password', ['token' => $token]);
-    // }
 }
