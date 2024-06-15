@@ -22,6 +22,9 @@ class ProductController extends Controller
     {
         $products = Product::all();
         $additional = ProductSupplier::all();
+
+        // dd($additional);
+
         return view('product.index', compact('products','additional'));
     }
 
@@ -84,7 +87,7 @@ class ProductController extends Controller
 
 
         $product->save();
-        // dd($product);
+        dd($product);
 
         foreach($request->supplier_id as $key => $supplier_id){
             $supplier = new ProductSupplier();
