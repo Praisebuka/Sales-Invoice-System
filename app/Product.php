@@ -6,25 +6,31 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public function category(){
+    public function category()
+    {
        return $this->belongsTo('App\Category');
     }
-    public function unit(){
+    public function unit()
+    {
         return $this->belongsTo('App\Unit');
     }
-    public function tax(){
+    public function tax()
+    {
         return $this->belongsTo('App\Tax');
     }
 
-    public function additionalProduct(){
+    public function additionalProduct()
+    {
         return $this->hasMany('App\ProductSupplier');
     }
 
-    public function sale(){
+    public function sale()
+    {
         return $this->hasMany('App\Sale');
     }
 
-    public function invoice(){
+    public function invoice()
+    {
         return $this->belongsToMany('App\Invoice');
     }
 }
