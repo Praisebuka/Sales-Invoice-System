@@ -10,8 +10,8 @@
                 <h1><i class="fa fa-edit"></i>Add New Product</h1>
             </div>
             <ul class="app-breadcrumb breadcrumb">
-                <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-                <li class="breadcrumb-item">Product</li>
+                <li class="breadcrumb-item"><a href="/"><i class="fa fa-home fa-lg"></i></a></li>
+                <li class="breadcrumb-item"><a href="/product"> Product </a> </li>
                 <li class="breadcrumb-item"><a href="#">Add Products</a></li>
             </ul>
         </div>
@@ -45,7 +45,7 @@
                             @csrf
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label class="control-label">Product</label>
+                                    <label class="control-label"> Product <span class="required-icon"> * </span> </label>
                                     <input name="name" class="form-control @error('name') is-invalid @enderror" type="text" placeholder="Product Name">
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="control-label">Serial Number</label>
+                                    <label class="control-label"> Serial Number <span class="required-icon"> * </span> </label>
                                     <input name="serial_number" class="form-control @error('serial_number') is-invalid @enderror" type="number" placeholder="Enter Serial Number">
                                     @error('serial_number')
                                     <span class="invalid-feedback" role="alert">
@@ -64,7 +64,7 @@
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <label class="control-label">Model</label>
+                                    <label class="control-label"> Model <span class="required-icon"> * </span> </label>
                                     <input name="model" class="form-control @error('name') is-invalid @enderror" type="text" placeholder="Enter Model">
                                     @error('model')
                                     <span class="invalid-feedback" role="alert">
@@ -73,7 +73,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="control-label">Category</label>
+                                    <label class="control-label"> Category <span class="required-icon"> * </span> </label>
 
                                     <select name="category_id" class="form-control">
                                         <option>---Select Category---</option>
@@ -90,7 +90,7 @@
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <label class="control-label">Selling Price</label>
+                                    <label class="control-label"> Selling Price <span class="required-icon"> * </span> </label>
                                     <input name="sales_price" class="form-control @error('sales_price') is-invalid @enderror" type="number" placeholder="Enter Selling Price">
                                     @error('sales_price')
                                     <span class="invalid-feedback" role="alert">
@@ -99,7 +99,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="control-label">Unit</label>
+                                    <label class="control-label"> Unit <span class="required-icon"> * </span> </label>
                                     <select name="unit_id" class="form-control">
                                         <option>---Select Unit---</option>
                                         @foreach($units as $unit)
@@ -114,7 +114,7 @@
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <label class="control-label">Image</label>
+                                    <label class="control-label"> Image <span class="required-icon"> * </span> </label>
                                     <input name="image"  class="form-control @error('image') is-invalid @enderror" type="file" >
                                     @error('image')
                                     <span class="invalid-feedback" role="alert">
@@ -123,7 +123,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="control-label">Tax </label>
+                                    <label class="control-label">Tax <span class="required-icon"> * </span> </label>
                                     <select name="tax_id" class="form-control">
                                         <option>---Select Tax---</option>
                                         @foreach($taxes as $tax)
@@ -144,7 +144,7 @@
                                     <div class="group row">
                                         <div class="form-group col-md-5">
                                              <select name="supplier_id[]" class="form-control">
-                                                <option>Select Supplier</option>
+                                                <option> Select Supplier </option>
                                                 @foreach($suppliers as $supplier)
                                                     <option value="{{$supplier->id}}">{{$supplier->name}} </option>
                                                 @endforeach

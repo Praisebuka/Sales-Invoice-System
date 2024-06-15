@@ -71,7 +71,7 @@ class ProductController extends Controller
         $product->model = $request->model;
         $product->category_id = $request->category_id;
         $product->sales_price = $request->sales_price;
-        $product->unit_id = $request->unit_id;
+        $product->unit_id = $request->unit_id; 
         $product->tax_id = $request->tax_id;
 
 
@@ -215,5 +215,5 @@ class ProductController extends Controller
         return redirect()->back();
 
     }
-    
+
 }
