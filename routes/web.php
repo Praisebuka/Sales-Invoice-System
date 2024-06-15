@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\SalesController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,9 +14,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Http\Controllers\SalesController;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
+
 
 Auth::routes();
 
