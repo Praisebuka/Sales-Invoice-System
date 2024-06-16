@@ -103,14 +103,16 @@ class HomeController extends Controller
         $user->l_name = $request->l_name;
         $user->email = $request->email;
 
-        if ($request->hasFile('image')){
-        $image_path ="images/user/".$user->image;
-        if (file_exists($image_path)){
-            unlink($image_path);
-        }
-        $imageName =request()->image->getClientOriginalName();
-        request()->image->move(public_path('images/user/'), $imageName);
-        $user->image = $imageName;
+        if ($request->hasFile('image')) {
+            $image_path ="images/user/".$user->image;
+            
+            if (file_exists($image_path)) {
+                unlink($image_path);
+            }
+            
+            $imageName =request()->image->getClientOriginalName();
+            request()->image->move(public_path('images/user/'), $imageName);
+            $user->image = $imageName;
         }
 
         if ($request->filled(['current_password', 'new_password', 'confirm_password'])) {
