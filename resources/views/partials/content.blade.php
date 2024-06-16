@@ -9,52 +9,72 @@
         </ul>
     </div>
     <div class="row">
-    <div class="col-md-6 col-lg-3">
-        <div class="widget-small primary coloured-icon">
-            <i class="icon fa fa-cube fa-3x"></i>
-            <div class="info">
-                <h4>Products</h4>
-                <p><b>{{ $totalProducts }}</b></p>
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small primary coloured-icon">
+                <i class="icon fa fa-cube fa-3x"></i>
+                <div class="info">
+                    <h4> Products </h4>
+                    <p><b> {{ $totalProducts }} </b></p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-6 col-lg-3">
-        <div class="widget-small info coloured-icon">
-            <i class="icon fa fa-shopping-cart fa-3x"></i>
-            <div class="info">
-                <h4>Sales</h4>
-                <p><b>{{ $totalSales }}</b></p>
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small info coloured-icon">
+                <i class="icon fa fa-shopping-cart fa-3x"></i>
+                <div class="info">
+                    <h4> Sales </h4>
+                    <p><b> {{ $totalSales }} </b></p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-6 col-lg-3">
-        <div class="widget-small warning coloured-icon">
-            <i class="icon fa fa-truck fa-3x"></i>
-            <div class="info">
-                <h4>Suppliers</h4>
-                <p><b>{{ $totalSuppliers }}</b></p>
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small warning coloured-icon">
+                <i class="icon fa fa-truck fa-3x"></i>
+                <div class="info">
+                    <h4> Suppliers </h4>
+                    <p><b> {{ $totalSuppliers }} </b></p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-6 col-lg-3">
-        <div class="widget-small danger coloured-icon">
-            <i class="icon fa fa-file fa-3x"></i>
-            <div class="info">
-                <h4>Invoices</h4>
-                <p><b>{{ $totalInvoices }}</b></p>
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small danger coloured-icon">
+                <i class="icon fa fa-file fa-3x"></i>
+                <div class="info">
+                    <h4> Invoices </h4>
+                    <p><b> {{ $totalInvoices }} </b></p>
+                </div>
             </div>
         </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small secondary coloured-icon">
+                <i class="icon fa fa-user fa-3x"></i>
+                <div class="info">
+                    <h4> All Users </h4>
+                    <p><b>{{ $allUsers }}</b></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small primary coloured-icon">
+                <i class="icon fa fa-group-user fa-3x"></i>
+                <div class="info">
+                    <h4> All Customers </h4>
+                    <p><b>{{ $allCustomers }}</b></p>
+                </div>
+            </div>
+        </div>
+
     </div>
-</div>
 
     <div class="row">
-    <div class="col-md-6">
-    <div class="tile">
-        <h3 class="tile-title">Monthly Sales</h3>
-        <div id="monthlySalesChart" style="width: 100%; max-width: 100%; height: 300px;"></div>
-
-    </div>
-</div>
+        <div class="col-md-6">
+            <div class="tile">
+                <h3 class="tile-title">Monthly Sales</h3>
+                <div id="monthlySalesChart" style="width: 100%; max-width: 100%; height: 300px;"></div>
+            </div>
+        </div>
         <div class="col-md-6">
             <div class="tile">
                 <h3 class="tile-title">Top 5 Sales Product</h3>

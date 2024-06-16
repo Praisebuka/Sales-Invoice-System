@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use App\User;
 use App\Sale;
 use App\Product;
 use App\Supplier;
 use App\Invoice;
 use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -37,6 +39,8 @@ class HomeController extends Controller
         $totalSales = Sale::count();
         $totalSuppliers = Supplier::count();
         $totalInvoices = Invoice::count();
+        $allUsers = User::count();
+        $allCustomers = Customer::count();
 
         // Fetch monthly sales data from the sales table
         $monthlySales = Sale::selectRaw('SUM(amount) as total_amount, MONTH(created_at) as month')
@@ -47,7 +51,7 @@ class HomeController extends Controller
         $formattedMonthlySales = [];
         foreach ($monthlySales as $sale) {
             $formattedMonthlySales[] = [
-                'month' => \DateTime::createFromFormat('!m', $sale->month)->format('F'), // Format month name
+                'month' => DateTime::createFromFormat('!m', $sale->month)->format('F'), // Format month name
                 'total_amount' => (int) $sale->total_amount // Ensure the amount is an integer
             ];
         }
@@ -84,8 +88,10 @@ class HomeController extends Controller
         // Fetch last week's sales
         $lastWeekSales = Sale::whereBetween('created_at', [Carbon::now()->subWeek()->startOfWeek(), Carbon::now()->subWeek()->endOfWeek()])
                             ->sum('amount');
+        
+        // dd($allCustomers);
 
-        return view('home', [ 'monthlySales' => $formattedMonthlySales, 'formattedTopSales'=> $formattedTopSales, 'totalProducts' => $totalProducts, 'totalSales' => $totalSales, 'totalSuppliers' => $totalSuppliers, 'totalInvoices' => $totalInvoices, 'todaySales' => $todaySales,  'yesterdaySales' => $yesterdaySales, 'thisWeekSales' =>$thisWeekSales, 'lastWeekSales' =>$lastWeekSales, ]);
+        return view('home', [ 'monthlySales' => $formattedMonthlySales, 'formattedTopSales'=> $formattedTopSales, 'totalProducts' => $totalProducts, 'totalSales' => $totalSales, 'totalSuppliers' => $totalSuppliers, 'totalInvoices' => $totalInvoices, 'todaySales' => $todaySales,  'yesterdaySales' => $yesterdaySales, 'thisWeekSales' => $thisWeekSales, 'lastWeekSales' => $lastWeekSales, 'allUsers' => $allUsers, 'allCustomers' => $allCustomers ]);
         
     }
 

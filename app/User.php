@@ -37,7 +37,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getFullNameAttribute() {
+    public function getFullNameAttribute() 
+    {
         return ucfirst($this->f_name) . ' ' . ucfirst($this->l_name);
     }
 
