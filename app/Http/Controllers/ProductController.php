@@ -87,7 +87,7 @@ class ProductController extends Controller
 
 
         $product->save();
-        dd($product);
+        // dd($product);
 
         foreach($request->supplier_id as $key => $supplier_id){
             $supplier = new ProductSupplier();

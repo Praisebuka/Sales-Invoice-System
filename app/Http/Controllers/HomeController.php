@@ -103,6 +103,7 @@ class HomeController extends Controller
         $user->l_name = $request->l_name;
         $user->email = $request->email;
 
+        # Logic for the image field
         if ($request->hasFile('image')) {
             $image_path ="images/user/".$user->image;
             
@@ -115,22 +116,23 @@ class HomeController extends Controller
             $user->image = $imageName;
         }
 
+        # Logic for the password field
         if ($request->filled(['current_password', 'new_password', 'confirm_password'])) {
-            // Validate password change fields
+            # Validate password fields first
             $request->validate([
                 'current_password' => 'required',
                 'new_password' => 'required|min:8|different:current_password',
                 'confirm_password' => 'required|same:new_password',
             ]);
         
-            // Verify if the entered current password matches the actual password
+            # Verify if the entered current password matches with the actual existing password
             if (Hash::check($request->current_password, $user->password)) {
-                // Check if the new and confirm passwords match
+                # Check if the new and confirm passwords match
                 if ($request->new_password !== $request->confirm_password) {
                     return redirect()->back()->with('error', 'New and confirm passwords do not match');
                 }
         
-                // Hash and update the new password
+                # Hash and update the new password
                 $user->password = Hash::make($request->new_password);
             } else {
                 return redirect()->back()->with('error', 'Incorrect current password');

@@ -22,7 +22,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/edit_profile', 'HomeController@edit_profile')->name('edit_profile');
 Route::POST('/update_profile/{id}', 'HomeController@update_profile')->name('update_profile');
-Route::get('/password_change/', 'HomeController@update_password')->name('update_password');
+// Route::get('/password_change/', 'HomeController@update_password')->name('update_password');
 
 
 Route::resource('category', 'CategoryController');
