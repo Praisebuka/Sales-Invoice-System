@@ -10,10 +10,12 @@ class Product extends Model
     {
        return $this->belongsTo('App\Category');
     }
+    
     public function unit()
     {
         return $this->belongsTo('App\Unit');
     }
+
     public function tax()
     {
         return $this->belongsTo('App\Tax');

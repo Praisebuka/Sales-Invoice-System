@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sale extends Model
 {
-    public function invoice(){
+    public function invoice()
+    {
         return $this->belongsTo('App\Invoice');
     }
 
-    public function product(){
+    public function product()
+    {
         return $this->belongsTo('App\Product');
     }
 
