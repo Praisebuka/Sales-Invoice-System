@@ -89,7 +89,7 @@ class HomeController extends Controller
         $lastWeekSales = Sale::whereBetween('created_at', [Carbon::now()->subWeek()->startOfWeek(), Carbon::now()->subWeek()->endOfWeek()])
                             ->sum('amount');
         
-        // dd($allCustomers);
+        // dd($allCustomers);  
 
         return view('home', [ 'monthlySales' => $formattedMonthlySales, 'formattedTopSales'=> $formattedTopSales, 'totalProducts' => $totalProducts, 'totalSales' => $totalSales, 'totalSuppliers' => $totalSuppliers, 'totalInvoices' => $totalInvoices, 'todaySales' => $todaySales,  'yesterdaySales' => $yesterdaySales, 'thisWeekSales' => $thisWeekSales, 'lastWeekSales' => $lastWeekSales, 'allUsers' => $allUsers, 'allCustomers' => $allCustomers ]);
         
