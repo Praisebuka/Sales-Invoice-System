@@ -58,7 +58,7 @@
 
         <div class="col-md-6 col-lg-3">
             <div class="widget-small primary coloured-icon">
-                <i class="icon fa fa-group-user fa-3x"></i>
+                <i class="icon fa fa-user fa-3x"></i>
                 <div class="info">
                     <h4> All Customers </h4>
                     <p><b>{{ $allCustomers }}</b></p>
