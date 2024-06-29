@@ -1,6 +1,6 @@
 <main class="app-content">
     <div class="app-title">
-        <div>   
+        <div> 
             <h1><i class="fa fa-dashboard"></i> Dashboard</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb">
