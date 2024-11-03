@@ -146,9 +146,7 @@
   height: '100%'
 };
 
-        
-
-    var chart = new google.visualization.LineChart(document.getElementById('monthlySalesChart'));
+    let chart = new google.visualization.LineChart(document.getElementById('monthlySalesChart'));
     chart.draw(data, options);
     }
 </script>
