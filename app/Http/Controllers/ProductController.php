@@ -61,9 +61,7 @@ class ProductController extends Controller
             'unit_id' => 'required',
             'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'tax_id' => 'required',
-
         ]);
-
 
         $product = new Product();
         $product->name = $request->name;
@@ -74,7 +72,6 @@ class ProductController extends Controller
         $product->unit_id = $request->unit_id; 
         $product->tax_id = $request->tax_id;
 
-
         // dd($request->hasFile('image'));
 
         if ($request->hasFile('image')) {
@@ -83,7 +80,6 @@ class ProductController extends Controller
             $image->move(public_path('images/product/'), $imageName);
             $product->image = $imageName;
         }
-
 
 
         $product->save();
