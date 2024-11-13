@@ -1,11 +1,11 @@
-<main class="app-content">
+ <main class="app-content">
     <div class="app-title">
-        <div>
-            <h1><i class="fa fa-dashboard"></i> Dashboard</h1>
+        <div> 
+            <h1><i class="fa fa-dashboard"></i> Dashboard </h1>
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="#"> Dashboard </a></li>
         </ul>
     </div>
     <div class="row">
@@ -71,13 +71,13 @@
     <div class="row">
         <div class="col-md-6">
             <div class="tile">
-                <h3 class="tile-title">Monthly Sales</h3>
+                <h3 class="tile-title"> Monthly Sales </h3>
                 <div id="monthlySalesChart" style="width: 100%; max-width: 100%; height: 300px;"></div>
             </div>
         </div>
         <div class="col-md-6">
             <div class="tile">
-                <h3 class="tile-title">Top 5 Sales Product</h3>
+                <h3 class="tile-title"> Top 5 Sales Product </h3>
                 <div id="topSalesChart" style="width:100%; max-width:100%; height:300px;"></div>
             </div>
         </div>
@@ -85,17 +85,17 @@
     <div class="row">
         <div class="col-md-6">
             <div class="tile">
-                <h3 class="tile-title">Today's vs. Yesterday's Sales</h3>
+                <h3 class="tile-title"> Today's vs. Yesterday's Sales </h3>
                 <div id="sales_chart" style="width: 100%; height: 360px;"></div>
 
             </div>
         </div>
         <div class="col-md-6">
             <div class="tile">
-                <h3 class="tile-title">Sales Comparison</h3>
-                <!-- <p>This theme is not built for a specific framework or technology like Angular or React etc. But due to it's modular nature it's very easy to incorporate it into any front-end or back-end framework like Angular, React or Laravel.</p>
-                <p>Go to <a href="http://pratikborsadiya.in/blog/vali-admin" target="_blank">documentation</a> for more details about integrating this theme with various frameworks.</p>
-                <p>The source code is available on GitHub. If anything is missing or weird please report it as an issue on <a href="https://github.com/pratikborsadiya/vali-admin" target="_blank">GitHub</a>. If you want to contribute to this theme pull requests are always welcome.</p> -->
+                <h3 class="tile-title"> Sales Comparison </h3>
+                <!-- <p> This theme is not built for a specific framework or technology like Angular or React etc. But due to it's modular nature it's very easy to incorporate it into any front-end or back-end framework like Angular, React or Laravel. </p>
+                <p> Go to <a href="http://pratikborsadiya.in/blog/vali-admin" target="_blank">documentation</a> for more details about integrating this theme with various frameworks. </p>
+                <p> The source code is available on GitHub. If anything is missing or weird please report it as an issue on <a href="https://github.com/pratikborsadiya/vali-admin" target="_blank">GitHub</a>. If you want to contribute to this theme pull requests are always welcome. </p> -->
                 <div id="weekSalesChart" style="width: 100%; height: 360px;"></div>
             </div>
         </div>
@@ -146,9 +146,7 @@
   height: '100%'
 };
 
-        
-
-    var chart = new google.visualization.LineChart(document.getElementById('monthlySalesChart'));
+    let chart = new google.visualization.LineChart(document.getElementById('monthlySalesChart'));
     chart.draw(data, options);
     }
 </script>
