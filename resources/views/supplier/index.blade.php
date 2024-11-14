@@ -14,12 +14,12 @@
             </div>
             <ul class="app-breadcrumb breadcrumb side">
                 <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-                <li class="breadcrumb-item">Supplier</li>
-                <li class="breadcrumb-item active"><a href="#">Manage Supplier</a></li>
+                <li class="breadcrumb-item"> Supplier </li>
+                <li class="breadcrumb-item active"><a href="#"> Manage Supplier </a></li>
             </ul>
         </div>
         <div class="">
-            <a class="btn btn-primary" href="{{route('supplier.create')}}"><i class="fa fa-plus"></i> Add Supplier</a>
+            <a class="btn btn-primary" href="{{route('supplier.create')}}"><i class="fa fa-plus"></i> Add Supplier </a>
         </div>
 
         <div class="row mt-2">
@@ -29,32 +29,32 @@
                         <table class="table table-hover table-bordered" id="sampleTable">
                             <thead>
                             <tr>
-                                <th>Supplier </th>
-                                <th>Address </th>
-                                <th>Contact</th>
-                                <th>Details</th>
-                                <th>Action</th>
+                                <th> Supplier </th>
+                                <th> Address </th>
+                                <th> Contact </th>
+                                <th> Details </th>
+                                <th> Action </th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach( $suppliers as $supplier)
-                            <tr>
-                                <td>{{ $supplier->name }} </td>
-                                <td>{{ $supplier->address }} </td>
-                                <td>{{ $supplier->mobile }} </td>
-                                <td>{{ $supplier->details }} </td>
-                                 <td>
-                                    <a class="btn btn-primary btn-sm" href="{{route('supplier.edit', $supplier->id)}}"><i class="fa fa-edit" ></i></a>
-                                    <button class="btn btn-danger btn-sm waves-effect" type="submit" onclick="deleteTag({{ $supplier->id }})">
-                                        <i class="fa fa-trash-o"></i>
-                                    </button>
-                                    <form id="delete-form-{{ $supplier->id }}" action="{{ route('supplier.destroy',$supplier->id) }}" method="POST" style="display: none;">
-                                        @csrf
-                                        @method('DELETE')
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
+                                @foreach( $suppliers as $supplier)
+                                <tr>
+                                    <td>{{ $supplier->name }} </td>
+                                    <td>{{ $supplier->address }} </td>
+                                    <td>{{ $supplier->mobile }} </td>
+                                    <td>{{ $supplier->details }} </td>
+                                    <td>
+                                        <a class="btn btn-primary btn-sm" href="{{route('supplier.edit', $supplier->id)}}"><i class="fa fa-edit" ></i></a>
+                                        <button class="btn btn-danger btn-sm waves-effect" type="submit" onclick="deleteTag({{ $supplier->id }})">
+                                            <i class="fa fa-trash-o"></i>
+                                        </button>
+                                        <form id="delete-form-{{ $supplier->id }}" action="{{ route('supplier.destroy',$supplier->id) }}" method="POST" style="display: none;">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
