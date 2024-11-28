@@ -37,3 +37,6 @@ Route::get('/findPrice', 'InvoiceController@findPrice')->name('findPrice');
 Route::get('/findPricePurchase', 'PurchaseController@findPricePurchase')->name('findPricePurchase');
 
 
+
+
+
