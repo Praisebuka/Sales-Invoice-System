@@ -13,7 +13,7 @@ use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -51,8 +51,8 @@ class HomeController extends Controller
         $formattedMonthlySales = [];
         foreach ($monthlySales as $sale) {
             $formattedMonthlySales[] = [
-                'month' => DateTime::createFromFormat('!m', $sale->month)->format('F'), // Format month name
-                'total_amount' => (int) $sale->total_amount // Ensure the amount is an integer
+                'month' => DateTime::createFromFormat('!m', $sale->month)->format('F'),
+                'total_amount' => (int) $sale->total_amount 
             ];
         }
 
