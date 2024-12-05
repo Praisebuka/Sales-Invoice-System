@@ -92,6 +92,7 @@ class ProductController extends Controller
             $supplier->price = $request->supplier_price[$key];
             $supplier->save();
         }
+
         return redirect()->back()->with('message', 'New product has been added successfully');
     }
 
@@ -116,12 +117,12 @@ class ProductController extends Controller
     {
         $productId = $id; // The specific product ID you want to retrieve associated ProductSupplier record for
         $additional = ProductSupplier::where('product_id', $productId)->first();
-
         $product =Product::findOrFail($id);
         $suppliers =Supplier::all();
         $categories = Category::all();
         $taxes = Tax::all();
         $units = Unit::all();
+
         return view('product.edit', compact('additional','suppliers','categories','taxes','units','product'));
     }
 
@@ -165,13 +166,14 @@ class ProductController extends Controller
         if ($request->hasFile('image')) {
             // Delete the existing image file if it exists
             $existingImagePath = public_path("images/product/{$product->image}");
+
             if (file_exists($existingImagePath) && is_file($existingImagePath)) {
                 unlink($existingImagePath);
             }
         
             $imageName = time() . '_' . uniqid() . '.' . $request->image->getClientOriginalExtension();    
             $request->image->move(public_path('images/product/'), $imageName);
-        
+
             $product->image = $imageName;
         }
         
@@ -208,6 +210,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
+        
         return redirect()->back();
 
     }

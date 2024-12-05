@@ -30,6 +30,7 @@ class PurchaseController extends Controller
     public function index()
     {
         $purchase = Purchase::all();
+
         return view('purchase.index', compact('purchase'));
     }
 
@@ -42,6 +43,7 @@ class PurchaseController extends Controller
     {
         $suppliers = Supplier::all();
         $products = Product::all();
+
         return view('purchase.create', compact('suppliers','products'));
     }
 
@@ -94,6 +96,7 @@ class PurchaseController extends Controller
     public function findPrice(Request $request)
     {
         $data = DB::table('products')->select('sales_price')->where('id', $request->id)->first();
+
         return response()->json($data);
     }
 
@@ -118,6 +121,7 @@ class PurchaseController extends Controller
     {
         $invoice = Invoice::findOrFail($id);
         $sales = Sale::where('invoice_id', $id)->get();
+
         return view('invoice.show', compact('invoice','sales'));
 
     }
@@ -192,6 +196,7 @@ class PurchaseController extends Controller
     {
         $invoice = Invoice::findOrFail($id);
         $invoice->delete();
+        
         return redirect()->back();
 
     }
