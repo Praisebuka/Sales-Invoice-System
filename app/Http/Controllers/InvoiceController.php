@@ -44,6 +44,7 @@ class InvoiceController extends Controller
     {
         $customers = Customer::all();
         $products = Product::all();
+
         return view('invoice.create', compact('customers','products'));
     }
 
@@ -90,6 +91,7 @@ class InvoiceController extends Controller
     public function findPrice(Request $request)
     {
         $data = DB::table('products')->select('sales_price')->where('id', $request->id)->first();
+
         return response()->json($data);
     }
 
@@ -120,6 +122,7 @@ class InvoiceController extends Controller
         $products = Product::orderBy('id', 'DESC')->get();
         $invoice = Invoice::findOrFail($id);
         $sales = Sale::where('invoice_id', $id)->get();
+
         return view('invoice.edit', compact('customers','products','invoice','sales'));
     }
 
@@ -178,6 +181,7 @@ class InvoiceController extends Controller
         Sales::where('invoice_id', $id)->delete();
         $invoice = Invoice::findOrFail($id);
         $invoice->delete();
+        
         return redirect()->back();
 
     }
