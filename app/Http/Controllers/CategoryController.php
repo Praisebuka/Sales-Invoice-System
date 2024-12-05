@@ -23,6 +23,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
+
         return view('category.index', compact('categories'));
     }
 
@@ -77,6 +78,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::findOrFail($id);
+
         return view('category.edit', compact('category'));
     }
 
@@ -111,6 +113,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
+        
         return redirect()->back();
 
     }
