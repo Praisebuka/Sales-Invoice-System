@@ -52,12 +52,12 @@ class CustomerController extends Controller
         $customer->name = $request->name;
         $customer->address = $request->address;
         $customer->mobile = $request->mobile;
-        $customer->email = $request->email;
+        $customer->email = $request->email;  
         $customer->details = $request->details;
         $customer->previous_balance = $request->previous_balance;
         $customer->save();
 
-        return redirect()->back()->with('message', 'Customer added successfully');
+        return redirect()->back()->with('message', 'Customer added successfully'); 
     }
 
     /**
