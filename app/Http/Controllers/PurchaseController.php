@@ -56,7 +56,6 @@ class PurchaseController extends Controller
     public function store(Request $request)
     {
 
-        // Validation rules
         $request->validate([
             'supplier_id' => 'required|exists:suppliers,id',
             'date' => 'required|date',
@@ -71,7 +70,6 @@ class PurchaseController extends Controller
         $purchase = new Purchase();
         $purchase->supplier_id = $request->supplier_id;
         $purchase->date = $request->date;
-        // Add other fields if needed
 
         // Save the purchase
         $purchase->save();
