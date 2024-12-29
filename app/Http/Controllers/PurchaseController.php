@@ -177,7 +177,7 @@ class PurchaseController extends Controller
 
         }
 
-        return redirect('invoice/'.$invoice->id)->with('message','created Successfully');
+        return redirect('invoice/'.$invoice->id)->with('message','created successfully');
 
 
     }
