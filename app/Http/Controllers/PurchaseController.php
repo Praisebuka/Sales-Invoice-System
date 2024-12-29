@@ -8,7 +8,6 @@ use App\Purchase;
 use App\Sale;
 use App\Supplier;
 use App\Invoice;
-use App\PurchaseDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
