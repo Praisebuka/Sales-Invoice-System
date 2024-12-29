@@ -82,12 +82,10 @@ class HomeController extends Controller
         $yesterdaySales = Sale::whereDate('created_at', $yesterday)->sum('amount');
 
         // Fetch this week's sales
-        $thisWeekSales = Sale::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
-                            ->sum('amount');
+        $thisWeekSales = Sale::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->sum('amount');
 
         // Fetch last week's sales
-        $lastWeekSales = Sale::whereBetween('created_at', [Carbon::now()->subWeek()->startOfWeek(), Carbon::now()->subWeek()->endOfWeek()])
-                            ->sum('amount');
+        $lastWeekSales = Sale::whereBetween('created_at', [Carbon::now()->subWeek()->startOfWeek(), Carbon::now()->subWeek()->endOfWeek()])->sum('amount');
         
         return view('home', [ 'monthlySales' => $formattedMonthlySales, 'formattedTopSales'=> $formattedTopSales, 'totalProducts' => $totalProducts, 'totalSales' => $totalSales, 'totalSuppliers' => $totalSuppliers, 'totalInvoices' => $totalInvoices, 'todaySales' => $todaySales,  'yesterdaySales' => $yesterdaySales, 'thisWeekSales' => $thisWeekSales, 'lastWeekSales' => $lastWeekSales, 'allUsers' => $allUsers, 'allCustomers' => $allCustomers ]);
         
