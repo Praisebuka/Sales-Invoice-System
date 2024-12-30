@@ -135,6 +135,7 @@ class PurchaseController extends Controller
         $products = Product::orderBy('id', 'DESC')->get();
         $invoice = Invoice::findOrFail($id);
         $sales = Sale::where('invoice_id', $id)->get();
+        
         return view('invoice.edit', compact('customers','products','invoice','sales'));
     }
 

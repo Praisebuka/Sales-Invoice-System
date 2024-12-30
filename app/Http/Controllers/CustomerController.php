@@ -17,6 +17,7 @@ class CustomerController extends Controller
     public function index()
     {
         $customers = Customer::all();  
+        
         return view('customer.index', compact('customers'));
     }
 
@@ -80,6 +81,7 @@ class CustomerController extends Controller
     public function edit($id)
     {
         $customer = Customer::findOrFail($id);
+
         return view('customer.edit', compact('customer'));
     }
 
