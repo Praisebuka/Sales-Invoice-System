@@ -180,7 +180,6 @@ class ProductController extends Controller
 
         $product->save();
 
-                // Update or create product suppliers
         foreach ($request->supplier_id as $key => $supplier_id) {
             $supplier = ProductSupplier::where('product_id', $product->id)
                 ->where('supplier_id', $supplier_id)
